@@ -39,7 +39,6 @@ plot(totime,data$Global_active_power,type = "l",xlab = "",ylab = "Global Active 
 
 plot(totime,data$Voltage,type = "l",xlab = "datetime",ylab = "Vollage")
 
-
 plot(totime,data$Sub_metering_1,type = "l",xlab = "",ylab="Energy sub metering",yaxt = "n")
 lines(totime,data$Sub_metering_2,col = "orange")
 lines(totime,data$Sub_metering_3,col = "blue")
