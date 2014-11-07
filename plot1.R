@@ -1,10 +1,17 @@
+## entireData <- read.table("household_power_consumption.txt",head = TRUE,sep = ";",na.strings = "?")
+## entireData$Date <- as.character(as.Date(entireData$Date,"%d/%m/%Y"))
+## data <- subset(entireData,entireData$Date %in% c("2007-02-01","2007-02-02"))
+## you can work like this to get the plot data , read the entire dataset and subset it
+## but it's slower than the  below method
+
+
 ## Read the first 5 rows of data and you can see that the data is stored by minutes
 ## eg. 1 minute 1 row ,and store the column name
 firstdata <- read.table("household_power_consumption.txt",head = TRUE,nrows = 5,sep = ";",na.strings = "?")
 name <- names(firstdata)
 
 ## Calculate the row numbers that you should skip,because you just want the rows that 
-## data between 2007-02-01 and 2007-02-02
+## date between 2007-02-01 and 2007-02-02
 
 ## Read the first data's Date and then transform it to the POSIXct class 
 firstDate <- as.character(firstdata$Date[1])
