@@ -36,8 +36,9 @@ data <- read.table("household_power_consumption.txt",head = TRUE,nrows = readRow
 colnames(data) <- name
 
 ## plot1
+png(file = "plot1.png", bg = "transparent")
 hist(data$Global_active_power,col = "red",main = "Global Active Power",xlab = "Global Active Power(kilowatts)")
 
 ## copy plot1 to the png file plot1.png
-dev.copy(png,file="plot1.png",height = 480,width = 480)
+##dev.copy(png,file="plot1.png",height = 480,width = 480)
 dev.off()

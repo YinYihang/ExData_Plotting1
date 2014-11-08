@@ -39,6 +39,7 @@ concat <- paste(data$Date,data$Time,sep = " ")
 totime <- strptime(concat,"%Y-%m-%d %H:%M:%S")
 
 ## copy plot2 to the png file plot2.png
+png(file = "plot2.png", bg = "transparent")
 plot(totime,data$Global_active_power,type = "l",xlab = "",ylab = "Global Active Power(kilowatts)",col = 1)
-dev.copy(png,file="plot2.png",height = 480,width = 480)
+## dev.copy(png,file="plot2.png",height = 480,width = 480)
 dev.off()

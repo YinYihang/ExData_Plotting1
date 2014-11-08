@@ -39,7 +39,8 @@ data$Date <- as.Date(data$Date,format = "%d/%m/%Y")
 concat <- paste(data$Date,data$Time,sep = " ")
 totime <- strptime(concat,"%Y-%m-%d %H:%M:%S")
 
-## plot4
+## plot4 , i use the png() instead of dev.copy()
+png(file = "plot4.png",bg = "transparent")
 par(mfrow = c(2,2))
 
 plot(totime,data$Global_active_power,type = "l",xlab = "",ylab = "Global Active Power(kilowatts)")
@@ -49,9 +50,9 @@ plot(totime,data$Voltage,type = "l",xlab = "datetime",ylab = "Vollage")
 plot(totime,data$Sub_metering_1,type = "l",xlab = "",ylab="Energy sub metering",yaxt = "n")
 lines(totime,data$Sub_metering_2,col = "orange")
 lines(totime,data$Sub_metering_3,col = "blue")
-legend("topright",bty = "n",cex = 0.7,legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),lty = 1,col = c("black","orange","blue"))
+legend("topright",bty = "n",legend = c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),lty = 1,col = c("black","orange","blue"))
 
 plot(totime,data$Global_reactive_power,type = "l",xlab = "datetime",ylab = "Global_reactive_power")
 
-dev.copy(png,file="plot4.png",height = 480,width = 480)
+## dev.copy(png,file="plot4.png",height = 480,width = 480)
 dev.off()
